@@ -80,7 +80,9 @@ def main():
     X, y = load_data()
 
     # Train classifiers and make predictions
-    thetas = one_vs_all(X, y, 10, 1)
+    num_digits = 10
+    lambda_r = 1
+    thetas = one_vs_all(X, y, num_digits, lambda_r)
     pred = predict_one_vs_all(X, thetas)
     print('\nTraining Set Accuracy: {0}%\n'.format(np.mean((pred == y) * 1) * 100))
 
